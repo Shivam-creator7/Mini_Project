@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .alerts {
+            background-color:rgb(128, 250, 138);
+            padding: 15px;
+            border-left: 5px solidrgb(246, 148, 141);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Student Dashboard</h2>
+</header>
+
+<nav>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'add_budget' %}">Study Hours Session</a>
+    <a href="{% url 'add_expense' %}">Update Completed Hours</a>
+</nav>
+
+<div class="container">
+
+    {% if alerts %}
+    <div class="alerts">
+        <h3>Alerts</h3>
+        <ul>
+            {% for alert in alerts %}
+                <li>{{ alert }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="grid">
+        <div class="box">
+            <h3>Study Session</h3>
+            <ul>
+                {% for b in budgets %}
+                    <li>{{ b.Subject }} - {{ b.Time}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Hours Completed</h3>
+            <ul>
+                {% for e in expenses %}
+                    <li>{{ e.Subject}} - {{ e.Time}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

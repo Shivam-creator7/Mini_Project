@@ -1,0 +1,30 @@
+{% comment %} 
+{% extends 'planner/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>Welcome to Your Budget Planner</h2>
+  
+  <p>Hello, {{ user.username }}!</p>
+
+  <h3>Your Budget</h3>
+  <ul>
+    {% for budget in budgets %}
+      <li>{{ budget.category }}: ₹{{ budget.amount }}</li>
+    {% empty %}
+      <li>No budget data yet.</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Your Expenses</h3>
+  <ul>
+    {% for expense in expenses %}
+      <li>{{ expense.category }}: ₹{{ expense.amount }}</li>
+    {% empty %}
+      <li>No expenses recorded.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'add_budget' %}"><button>Add Budget</button></a>
+  <a href="{% url 'add_expense' %}"><button>Add Expense</button></a>
+{% endblock %} {% endcomment %}

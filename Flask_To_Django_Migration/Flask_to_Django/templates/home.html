@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SaveSmart</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-color: #ffecb5;
+        font-family: Copperplate, Papyrus, fantasy;
+        font-size: 24px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    body.loaded {
+        opacity: 1;
+    }
+
+    .navbar {
+        background-color: #e1a50e;
+        min-height: 70px;
+    }
+
+    .navbar a {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .box {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-size: 18px;
+    }
+
+    .fb {
+        font-size: 18px;
+        padding: 10px;
+        box-shadow: 0 10px 14px rgba(0, 0, 0, 0.6); 
+        background-color: #fad781;
+    }
+</style>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'home' %}"><h3>SaveSmart</h3></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'add_expense' %}">Add Expense</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="box">
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Welcome to SaveSmart!</h1>
+        <p class="lead">Your personal finance tracker to manage expenses efficiently.</p>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+</div>
+<hr>
+
+<!-- Key Features Section -->
+<div class="box">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Why Use SaveSmart?</h1>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <h4>📊 Track Expenses</h4>
+                <p>Keep an eye on your daily spending.</p>
+            </div>
+            <div class="col-md-3">
+                <h4>📉 Visualize Spending</h4>
+                <p>Analyze expenses with charts & graphs.</p>
+            </div>
+            <div class="col-md-3">
+                <h4>📅 Set Budgets</h4>
+                <p>Control your spending with budget limits.</p>
+            </div>
+            <div class="col-md-3">
+                <h4>🔒 Secure & Private</h4>
+                <p>Your data is encrypted and safe.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="container mt-5 text-center">
+        <h2>How It Works</h2>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <h4>📝 Sign Up</h4>
+                <p>Create a free account in seconds.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>💰 Add Expenses</h4>
+                <p>Log your daily transactions easily.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>📊 Analyze Trends</h4>
+                <p>See where your money is going.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="box">
+    <hr>
+    <div class="container mt-5 text-center">
+        <h2>What Our Users Say</h2>
+        <blockquote class="blockquote mt-3">
+            <p>"SaveSmart helped me track my expenses and save 20% more each month!"</p>
+            <footer class="blockquote-footer">Sarah, Freelance Designer</footer>
+        </blockquote>
+        <blockquote class="blockquote mt-3">
+            <p>"Simple, clean, and powerful. Best expense tracker I’ve used!"</p>
+            <footer class="blockquote-footer">James, Small Business Owner</footer>
+        </blockquote>
+    </div>
+</div>
+
+<!-- Security & Privacy Section -->
+<div class="container mt-5 text-center">
+    <h2>Your Data is Safe</h2>
+    <p>We use <strong>bank-level encryption</strong> to keep your financial data secure.</p>
+</div>
+
+<!-- Footer -->
+<div class="box1">
+    <footer class="bg-light text-center text-lg-start mt-5 py-3">
+        <div class="container text-center">
+            <div class="fb">
+                <p class="mb-1">&copy; 2025 SaveSmart. All rights reserved.</p>
+                <div>
+                    <a href="#" class="text-dark me-3">About</a>
+                    <a href="#" class="text-dark me-3">Privacy Policy</a>
+                    <a href="#" class="text-dark">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.classList.add("loaded");
+    });
+</script>
+
+</body>
+</html>
